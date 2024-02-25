@@ -15,29 +15,27 @@ doc = Nokogiri::HTML(page.body)
 csv_filename = '2 semestr/PR1(parsing)/results.csv'
 
 # Відкриття CSV-файлу для запису результатів парсингу
+# Парсинг даних і збереження їх у масив
+elements = doc.css('div._3VJt4n ol._2vAAlI li._134slX._2C6PLy.tbvJKO')
+
+# Задання індексу, з якого почнеться запис
+start_index = 15  # 16-й елемент (починається з 0)
+
+# Відкриття CSV-файлу для запису результатів парсингу
 CSV.open(csv_filename, 'w') do |csv|
   # Додавання заголовка CSV з іменами стовпців
   csv << %w[Name ID] # Заголовки
 
-  # Хеш для елементів, що вже зустрічалися
-  seen_elements = {}
-  # ID
   id = 0
 
-  # Парсинг даних і додавання їх у CSV-файл
-  doc.css('div._3VJt4n ol._2vAAlI li._134slX._2C6PLy.tbvJKO').each do |element|
+  # Перехід до елементів, починаючи з 16-го
+  elements[start_index..-1].each do |element|
     begin
       # Отримання тексту з тегу <span>
       data1 = element.css('span').text.strip
 
-      # Перевірка, чи елемент зустрічався
-      unless seen_elements[data1]
-        # Зберігання даних та ID у CSV-файл
-        csv << [data1, id += 1]
-
-        # Додавання елемента до хешу
-        seen_elements[data1] = true
-      end
+      # Додавання даних та ID у CSV-файл
+      csv << [data1, id+=1]
     rescue StandardError => e
       # Обробка можливих помилок і виведення повідомлення
       puts "Помилка при обробці елемента: #{e.message}"

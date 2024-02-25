@@ -1,148 +1,146 @@
 Name,ID
 Personal fitness trainer,1
-Grocery shopping and delivery,2
-Makeup artist,3
-Doula and birth coaching services,4
-Private school application consultant,5
-Elder companion and care provider,6
-Pet sitting,7
-Handyman service,8
-Mobile car wash and detailing,9
-Virtual assistant,10
-Graphic designer,11
-IT systems consultant,12
-Mobile notary public,13
-Rental property management,14
-Corporate event planner,15
-Meditation instructor,16
-Private yoga instructor,17
-In-home masseuse,18
-Acupuncturist,19
-Chiropractor,20
-Nutrition consultant,21
-Meal delivery service,22
-Personal chef,23
-Errand-runner,24
-Dry-cleaning delivery and pick-up,25
-Seamstress or tailor services,26
-Window washing,27
-Home cleaning service,28
-Private car service,29
-In-home hair stylist,30
-Personal wardrobe stylist,31
-Life coach,32
-Online dating consultant / profile editor,33
-Birth photographer,34
-Overnight doula service,35
-Lactation consultant,36
-On-demand babysitter,37
-Home baby proofing consultant,38
-Nanny and au pair placement service,39
-Private music teacher,40
-Children’s party planner,41
-Birthday party character appearances,42
-Children’s entertainment services,43
-Homeschool teacher,44
-Academic tutoring,45
-Online English tutor,46
-SAT tutoring and preparation,47
-GED test preparation,48
-College application consultant,49
-College essay editor,50
-Cover letter and resume writer,51
-In-home physical therapist,52
-Private nursing service,53
-Pet Sitting,54
-Dog walking,55
-Mobile veterinary services,56
-Mobile pet grooming,57
-Pool servicing and maintenance,58
-Lawn care,59
-Locksmith services,60
-Home entertainment installation,61
-Home-inspection services,62
-Interior painting service,63
-Wallpaper installation service,64
-Power washing service,65
-Carpet installation service,66
-Air conditioning installation and maintenance,67
-Plumbing service,68
-Appliance repair,69
-Porcelain repair,70
-Home maintenance equipment rental,71
-Mobile car wash and car detailing,72
-Mobile car mechanic,73
-Vehicle inspection service,74
-Windshield repair service,75
-Executive headhunting,76
-Language translation,77
-Project manager,78
-Bookkeeper,79
-Certified professional accountant,80
-Payroll processing service,81
-Financial auditor,82
-Business plan consultant,83
-Office support services,84
-Data analysis,85
-Messenger service,86
-Online course consultant,87
-Freelance researcher,88
-Online business coach,89
-Customer service phone operator,90
-Live chat customer support service,91
-Website designer,92
-Marketing copywriter,93
-Content writer,94
-Editing and proofreading service,95
-E-book ghostwriter,96
-Facebook ads strategist,97
-Instagram marketing strategist,98
-Social media manager,99
-Content marketing strategist,100
-SEO strategist,101
-Email marketing manager,102
-Affiliate sales and marketing consultant,103
-Brand photographer,104
-Marketing video producer,105
-Podcast producer,106
-Presentation and proposal designer,107
-Public relations consultant,108
-Brand ambassador,109
-Computer repair service,110
-Printer and copy machine maintenance,111
-Software installation service,112
-Mobile IT support service,113
-App developer,114
-Online network installation and maintenance,115
-Online security consultant,116
-Data management consultant,117
-Legal process server,118
-Paralegal services,119
-Private investigator,120
-Contract drafting and review service,121
-Local tour guide,122
-Adventure tours,123
-Travel agent,124
-Corporate retreat coordinator,125
-Cruise booking agent,126
-Travel concierge services,127
-Ski or snowboarding instructor,128
-SCUBA diving instructor,129
-Beach equipment rentals,130
-Fundraising event coordinator,131
-Trade show producer,132
-Wedding planner,133
-Conference marketing manager,134
-Event photographer,135
-Event videographer,136
-Audio visual technician,137
-Lighting designer,138
-Live video producer,139
-Bartending services,140
-Event catering services,141
-Custom baking,142
-Event DJ,143
-Photo booth rental service,144
-Reunion coordinator,145
-Valet parking service,146
-Event furniture and equipment rental,147
+Meditation instructor,2
+Private yoga instructor,3
+In-home masseuse,4
+Acupuncturist,5
+Chiropractor,6
+Nutrition consultant,7
+Meal delivery service,8
+Personal chef,9
+Grocery shopping and delivery,10
+Errand-runner,11
+Dry-cleaning delivery and pick-up,12
+Seamstress or tailor services,13
+Window washing,14
+Home cleaning service,15
+Private car service,16
+Makeup artist,17
+In-home hair stylist,18
+Personal wardrobe stylist,19
+Life coach,20
+Online dating consultant / profile editor,21
+Doula and birth coaching services,22
+Birth photographer,23
+Overnight doula service,24
+Lactation consultant,25
+On-demand babysitter,26
+Home baby proofing consultant,27
+Nanny and au pair placement service,28
+Private music teacher,29
+Children’s party planner,30
+Birthday party character appearances,31
+Children’s entertainment services,32
+Private school application consultant,33
+Homeschool teacher,34
+Academic tutoring,35
+Online English tutor,36
+SAT tutoring and preparation,37
+GED test preparation,38
+College application consultant,39
+College essay editor,40
+Cover letter and resume writer,41
+Elder companion and care provider,42
+In-home physical therapist,43
+Private nursing service,44
+Pet Sitting,45
+Dog walking,46
+Mobile veterinary services,47
+Mobile pet grooming,48
+Handyman service,49
+Pool servicing and maintenance,50
+Lawn care,51
+Locksmith services,52
+Home entertainment installation,53
+Home-inspection services,54
+Interior painting service,55
+Wallpaper installation service,56
+Power washing service,57
+Carpet installation service,58
+Air conditioning installation and maintenance,59
+Plumbing service,60
+Appliance repair,61
+Porcelain repair,62
+Home maintenance equipment rental,63
+Mobile car wash and car detailing,64
+Mobile car mechanic,65
+Vehicle inspection service,66
+Windshield repair service,67
+Virtual assistant,68
+Executive headhunting,69
+Language translation,70
+Project manager,71
+Bookkeeper,72
+Certified professional accountant,73
+Payroll processing service,74
+Financial auditor,75
+Business plan consultant,76
+Office support services,77
+Data analysis,78
+Messenger service,79
+Online course consultant,80
+Freelance researcher,81
+Online business coach,82
+Customer service phone operator,83
+Live chat customer support service,84
+Graphic designer,85
+Website designer,86
+Marketing copywriter,87
+Content writer,88
+Editing and proofreading service,89
+E-book ghostwriter,90
+Facebook ads strategist,91
+Instagram marketing strategist,92
+Social media manager,93
+Content marketing strategist,94
+SEO strategist,95
+Email marketing manager,96
+Affiliate sales and marketing consultant,97
+Brand photographer,98
+Marketing video producer,99
+Podcast producer,100
+Presentation and proposal designer,101
+Public relations consultant,102
+Brand ambassador,103
+IT systems consultant,104
+Computer repair service,105
+Printer and copy machine maintenance,106
+Software installation service,107
+Mobile IT support service,108
+App developer,109
+Online network installation and maintenance,110
+Online security consultant,111
+Data management consultant,112
+Mobile notary public,113
+Legal process server,114
+Paralegal services,115
+Private investigator,116
+Contract drafting and review service,117
+Rental property management,118
+Local tour guide,119
+Adventure tours,120
+Travel agent,121
+Corporate retreat coordinator,122
+Cruise booking agent,123
+Travel concierge services,124
+Ski or snowboarding instructor,125
+SCUBA diving instructor,126
+Beach equipment rentals,127
+Corporate event planner,128
+Fundraising event coordinator,129
+Trade show producer,130
+Wedding planner,131
+Conference marketing manager,132
+Event photographer,133
+Event videographer,134
+Audio visual technician,135
+Lighting designer,136
+Live video producer,137
+Bartending services,138
+Event catering services,139
+Custom baking,140
+Event DJ,141
+Photo booth rental service,142
+Reunion coordinator,143
+Valet parking service,144
+Event furniture and equipment rental,145
