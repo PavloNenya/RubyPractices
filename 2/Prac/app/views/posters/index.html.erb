@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posters</h1>
+
+<div id="posters">
+  <% @posters.each do |poster| %>
+    <%= render poster %>
+    <p>
+      <%= link_to "Show this poster", poster %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New poster", new_poster_path %>
