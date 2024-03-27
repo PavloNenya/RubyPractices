@@ -9,7 +9,7 @@ class ParseLinksTaskTest < ActiveSupport::TestCase
   end
 
   test "parse:links task should parse and save links" do
-    # Ми можемо використовувати стаби для вхідних даних для тестування
+
     stub_request(:get, "https://www.nerdwallet.com/article/small-business/service-business-ideas")
       .to_return(body: File.read('test/fixtures/example.html'))
 
@@ -18,6 +18,6 @@ class ParseLinksTaskTest < ActiveSupport::TestCase
     end
 
     assert_match(/Знайдено посилання:/, out)
-    # Додайте тут подальші перевірки для перевірки збереження посилань у базі даних
+
   end
 end
