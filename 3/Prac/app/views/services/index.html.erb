@@ -1,0 +1,14 @@
+<p style="color: green; text-align: center;"><%= notice %></p>
+
+<h1 style="text-align: center;">Services</h1>
+
+<div id="services">
+  <% @services.each do |service| %>
+    <%= render service %>
+    <p style="text-align: center;"><%= link_to "Show this service", service %></p>
+  <% end %>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "New service", new_service_path, class: "button" %>
+</div>

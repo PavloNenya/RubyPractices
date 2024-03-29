@@ -1,0 +1,14 @@
+<p style="color: green; text-align: center;"><%= notice %></p>
+
+<h1 style="text-align: center;">Accounts</h1>
+
+<div id="accounts">
+  <% @accounts.each do |account| %>
+    <%= render account %>
+    <p style="text-align: center;"><%= link_to "Show this account", account %></p>
+  <% end %>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "New account", new_account_path, class: "button" %>
+</div>

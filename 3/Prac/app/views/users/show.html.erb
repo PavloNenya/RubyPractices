@@ -1,0 +1,10 @@
+<p style="color: green; text-align: center;"><%= notice %></p>
+
+<%= render @user %>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
