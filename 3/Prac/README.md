@@ -1,24 +1,25 @@
-# README
+# Платформа для бронювання послуг
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Це наш перший проект побудований на Ruby on Rails.
+Тематикою нашого проекту є сайт надання послуг. 
 
-Things you may want to cover:
+Зміст:
+* [API документація](#api-docs);
+* [Діаграми](#diagrams);
+* [Скріпти](#scripts);
+* [Інтсрукції](#instruction);
 
-* Ruby version
 
-* System dependencies
+## API docs
 
-* Configuration
+## Diagrams
 
-* Database creation
+#### ER-діаграма
 
-* Database initialization
+![ER-діаграма](docs/Diagram.jpg)
 
-* How to run the test suite
+## Scripts
 
-* Services (job queues, cache servers, search engines, etc.)
+## Instruction
 
-* Deployment instructions
 
-* ...
