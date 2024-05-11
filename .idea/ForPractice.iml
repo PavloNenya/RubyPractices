@@ -318,6 +318,11 @@
       <value>file://$MODULE_DIR$/../ForPractice\vendor/assets</value>
     </entry>
   </component>
+  <component name="RakeTasksCache">
+    <option name="myRootTask">
+      <RakeTaskImpl id="rake" />
+    </option>
+  </component>
   <component name="RakeTasksCache-v2">
     <option name="myRootTask">
       <RakeTaskImpl id="rake">

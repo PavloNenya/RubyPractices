@@ -18,9 +18,14 @@ namespace :analyze do
     page = agent.get(url)
     doc = Nokogiri::HTML(page.body)
 
-    # Loop through elements and create business models
+    # Parsing data and saving it to an array
+    elements = doc.css('div._3VJt4n ol._12QZXE li._3ho7K-._1pCihN.olf-Ig')
+
+    # Setting the index from which recording will start
     start_index = 15 # 16th element (starts at 0)
-    doc.css('div._3VJt4n ol._2vAAlI li._134slX._2C6PLy.tbvJKO').each_with_index do |element, index|
+
+    # Loop through elements and create business models
+    elements[start_index..-1].each_with_index do |element, index|
       begin
         # Getting the text from the <span> tag
         data1 = element.css('span').text.strip
