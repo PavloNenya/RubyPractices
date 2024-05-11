@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ForPractice</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__title">
+          <h1 class="title__text"><%= link_to 'Book Service', home_index_path %></h1>
+        </div>
+        <ul class="header__user_actions">
+            <% if user_signed_in? %>
+              <li class="user_actions__item"><%=   link_to 'Profile', profiles_path, class: "user_actions__link" %></li>
+              <li class="user_actions__item"><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "user_actions__button" %></li>
+            <% else %>
+
+            <li class="user_actions__item"><%= link_to 'Sign in', new_user_session_path, class: "user_actions__link" %></li>
+            <li class="user_actions__item"><%= link_to 'Sign up', new_user_registration_path, class: "user_actions__link"  %></li>
+            <% end %>
+        </ul>
+      </header>
+      <nav class="nav">
+        <ul class="nav__menu-bar">
+          <li class="menu-bar__item">
+            <%=  link_to 'Posters', posters_path, class: "menu-bar__link" %>
+          </li>
+        </ul>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="poster__show">
+  <%= render @poster %>
+
+  <div class="poster__action">
+    <% if current_user == @poster.user %>
+      <%= link_to "Edit this poster", edit_poster_path(@poster) %> |
+      <%= button_to "Destroy this poster", @poster, method: :delete %>
+    <% end %>
+
+    <% if current_user %>
+      <%= form_tag(add_to_favorites_poster_path(@poster), method: :post) do %>
+        <%= submit_tag "Favorites", class: "poster__btn-add-favorite" %>
+      <% end %>
+    <% end %>
+
+    <% if current_user %>
+      <%= link_to "Review", new_poster_review_path(@poster) %>
+    <% end %>
+
+    <% if current_user %>
+      <%= link_to "Make a payment", new_payment_path(poster_id: @poster.id, user_id: current_user.id), class: "btn btn-success" %>
+    <% end %>
+
+    <%= link_to "View Schedule", schedule_poster_path(@poster), class: "btn btn-primary" %>
+
+    <%= link_to "Check if Day is Busy", check_busy_day_poster_path(@poster), class: "btn btn-info" %>
+
+    <% if @poster.reviews.any? %>
+      <h2>Reviews Summary:</h2>
+      <ul>
+        <% @poster.reviews.each do |review| %>
+          <li>
+            <strong>User:</strong> <%= review.user.email %><br>
+            <strong>Rating:</strong> <%= review.rating %><br>
+            <strong>Comment:</strong> <%= review.comment %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No reviews yet.</p>
+    <% end %>
+  </div>
+</div>

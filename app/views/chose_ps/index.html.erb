@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Chose ps</h1>
+
+<div id="chose_ps">
+  <h2>I will</h2>
+  <% @chose_ps.where(choice: 'I will').each do |chose_p| %>
+    <%= render chose_p %>
+    <p>
+      <%= link_to "Show this chose p", chose_p %>
+    </p>
+  <% end %>
+
+  <h2>I won't</h2>
+  <% @chose_ps.where(choice: 'I won\'t').each do |chose_p| %>
+    <%= render chose_p %>
+    <p>
+      <%= link_to "Show this chose p", chose_p %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New chose p", new_chose_p_path %>

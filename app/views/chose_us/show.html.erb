@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @chose_u %>
+
+<div>
+  <%= link_to "Edit this chose u", edit_chose_u_path(@chose_u) %> |
+  <%= link_to "Back to chose us", chose_us_path %>
+
+  <%= button_to "Destroy this chose u", @chose_u, method: :delete %>
+</div>

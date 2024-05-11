@@ -1,5 +1,0 @@
-source 'https://rubygems.org'
-
-# Геми
-gem 'nokogiri'
-gem 'mechanize'

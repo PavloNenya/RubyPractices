@@ -1,0 +1,14 @@
+
+<div class="block__profile">
+  <h2 class="profile__title">Your Profile</h2>
+  <%= render @profile %>
+
+  <div class="profile__action">
+    <div class="profile__link">
+      <%= link_to "Edit", edit_profile_path(@profile) %>
+    </div>
+    <div class="profile__link delete">
+      <%= link_to "Destroy profile", @profile, method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+</div>

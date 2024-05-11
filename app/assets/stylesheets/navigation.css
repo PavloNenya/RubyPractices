@@ -1,0 +1,22 @@
+.nav {
+    width: 100%;
+    background-color: #888;
+}
+.nav__menu-bar{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.menu-bar__item{
+    width: 75px;
+    height: inherit;
+}
+
+.menu-bar__link{
+    text-decoration: none;
+    color: #fff;
+}

@@ -1,0 +1,11 @@
+<!-- app/views/posters/check_busy_day.html.erb -->
+<p style="color: green"><%= notice %></p>
+
+<div class="poster__show">
+  <h1>Check if Day is Busy</h1>
+  <% if @is_busy %>
+    <p>This day is busy for this poster.</p>
+  <% else %>
+    <p>This day is not busy for this poster.</p>
+  <% end %>
+</div>

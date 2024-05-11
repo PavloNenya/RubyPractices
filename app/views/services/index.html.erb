@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= form_tag(services_path, method: "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search for services..." %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h1>Services</h1>
+
+<div id="services">
+  <% @services.each do |service| %>
+    <%= render service %>
+    <p>
+      <%= link_to "Show this service", service %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New service", new_service_path %>

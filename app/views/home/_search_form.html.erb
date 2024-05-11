@@ -1,0 +1,4 @@
+<%= form_tag(home_search_path, method: "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search for business models..." %>
+  <%= submit_tag "Search" %>
+<% end %>

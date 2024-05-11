@@ -1,0 +1,19 @@
+<div class="block_posters">
+  <div class="posters__search-form">
+    <%= form_tag(posters_path, method: "get") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search for posters by service..." %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <div class="posters__list" id="posters">
+    <% @posters.each do |poster| %>
+      <div class="poster">
+        <%= render poster %>
+        <p class="poster__link">
+          <%= link_to "Show this poster", poster %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

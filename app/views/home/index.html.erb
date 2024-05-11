@@ -1,0 +1,20 @@
+<h1>Business Models</h1>
+
+<%= render 'search_form' %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Index</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @business_models.each do |model| %>
+    <tr>
+      <td><%= model.name %></td>
+      <td><%= model.index - 15 %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

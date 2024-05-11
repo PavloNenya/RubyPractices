@@ -1,0 +1,15 @@
+<!-- app/views/posters/schedule.html.erb -->
+<p style="color: green"><%= notice %></p>
+
+<div class="poster__show">
+  <h1>Schedule for <%= @poster.name %></h1>
+  <% if @payments.any? %>
+    <ul>
+      <% @payments.each do |payment| %>
+        <li><%= payment.date %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No payments scheduled for this poster.</p>
+  <% end %>
+</div>

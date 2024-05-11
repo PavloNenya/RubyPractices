@@ -1,0 +1,26 @@
+<div id="<%= dom_id poster %>">
+  <h1 class="poster__service">
+    <%= poster.service.name %>
+  </h1>
+
+  <div class="poster__provider-info">
+
+    <strong>Provider:</strong>
+    <%= poster.user.email %>
+    <% if poster.user.profile.present? %>
+      <p class="provider-info__bio">
+        <%= poster.user.profile.surname %> <%= poster.user.profile.name %> <%= poster.user.profile.fatherly %>
+      </p>
+    <% end %>
+  </div>
+  <!-- Adding the name field -->
+  <p class="poster__name">
+    <%= poster.name %>
+  </p>
+  <p class="poster__description">
+    <%= poster.description %>
+  </p>
+  <p class="poster__price">
+    <%= poster.price %>
+  </p>
+</div>

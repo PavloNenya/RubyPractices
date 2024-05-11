@@ -1,0 +1,97 @@
+
+body{
+
+    display: flex;
+    font-family: Arial, serif;
+}
+.container{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+}
+
+/*___________HEADER______________*/
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #eee;
+    border-bottom: #555 solid 2px;
+    color: #444;
+    align-items: center;
+}
+.header__title{
+    width: 25%;
+}
+.header__title a{
+    text-decoration: none;
+    color: #444;
+}
+.header__user_actions{
+    display: flex;
+    width: 25%;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+
+}
+.user_actions__item{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    border: #555 solid 1px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.user_actions__item:hover{
+    border: none;
+    background-color: #555;
+    cursor: pointer;
+}
+.user_actions__link{
+    text-decoration: none;
+    flex: 1;
+    font-size: 1.0em;
+    color: #555;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.user_actions__link:hover{
+    color: #eee;
+}
+
+.header__user_actions button{
+    width: 100px;
+    height: 35px;
+    font-size: 1.0em;
+    border-radius: 5px;
+    background-color: #eee;
+    border: #555 solid 1px;
+    color: #555;
+    cursor: pointer;
+}
+.header__user_actions button:hover{
+    border: none;
+    background-color: #555;
+    color: #eee;
+    cursor: pointer;
+}
+
+/*__________CONTENT______________*/
+.block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+}
+
+

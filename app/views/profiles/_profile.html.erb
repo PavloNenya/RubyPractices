@@ -1,0 +1,81 @@
+<div id="<%= dom_id profile %>">
+  <p>
+    <strong>User Email:</strong>
+    <%= profile.user.email %>
+  </p>
+
+  <p>
+    <strong>User Role:</strong>
+    <%= profile.user.role %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= profile.name %>
+  </p>
+
+  <p>
+    <strong>Surname:</strong>
+    <%= profile.surname %>
+  </p>
+
+  <p>
+    <strong>Fatherly:</strong>
+    <%= profile.fatherly %>
+  </p>
+
+  <p>
+    <strong>Date of Birth:</strong>
+    <%= profile.date_of_birth %>
+  </p>
+
+  <p>
+    <strong>Gender:</strong>
+    <%= profile.gender %>
+  </p>
+
+  <p>
+    <strong>Telephone:</strong>
+    <%= profile.telephone %>
+  </p>
+
+  <!-- Show payments only if the user's role is 'client' -->
+  <% if profile.user.role == "client" %>
+    <h2>Your Payments</h2>
+    <% if @payments.present? && @payments.any? %>
+      <ul>
+        <% @payments.each do |payment| %>
+          <li>
+            <strong>Payment Date:</strong> <%= payment.date %><br>
+            <strong>Poster:</strong> <%= payment.poster.name %><br>
+            <!-- Add any other payment details you want to display -->
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No payments made yet.</p>
+    <% end %>
+  <% end %>
+
+  <!-- Show days with payments for posters created by the corresponding provider -->
+  <% if profile.user.role == "provider" && @payments_for_posters.present? %>
+    <h2>Days with Payments for Your Posters</h2>
+    <% @payments_for_posters.each do |poster, payments| %>
+      <h3><%= poster.name %></h3>
+      <% if payments.present? && payments.any? %>
+        <ul>
+          <% payments.each do |payment| %>
+            <li>
+              <strong>Payment Date:</strong> <%= payment.date %><br>
+              <!-- Add any other payment details you want to display -->
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No payments made for this poster yet.</p>
+      <% end %>
+    <% end %>
+  <% elsif profile.user.role == "provider" %>
+    <p>No posters created yet.</p>
+  <% end %>
+</div>

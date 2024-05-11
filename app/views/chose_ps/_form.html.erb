@@ -1,0 +1,38 @@
+<%= form_with(model: chose_p) do |form| %>
+  <% if chose_p.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(chose_p.errors.count, "error") %> prohibited this chose_p from being saved:</h2>
+
+      <ul>
+        <% chose_p.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :service_id %>
+    <%= form.collection_select :service_id, Service.all, :id, :name, prompt: "Select a service" %>
+  </div>
+
+  <!-- Make the user_id field invisible -->
+  <div class="field" style="display: none;">
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :email, prompt: "Select a user" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :choice %>
+    <%= form.select :choice, [['I will', 'I will'], ['I won\'t', 'I won\'t']], prompt: "Select a choice" %>
+  </div>
+
+  <% if @chose_p.choice == 'I will' || @chose_p.choice == 'I won\'t' %>
+  <% else %>
+    <p>You can only edit your choice if it is 'I will' or 'I won\'t'.</p>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
