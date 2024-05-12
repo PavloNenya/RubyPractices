@@ -16,14 +16,14 @@ class HomeController < ApplicationController
     end
 
     # Load business models for display
-    @business_models = BusinessModel.all
+    @service = Service.all
   end
 
   def search
     if params[:search].present?
-      @business_models = BusinessModel.where("name LIKE ?", "#{params[:search]}%")
+      @service = Service.where("name LIKE ?", "#{params[:search]}%")
     else
-      @business_models = []
+      @service = []
     end
     render 'index'
   end

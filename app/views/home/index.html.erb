@@ -1,20 +1,14 @@
-<h1>Business Models</h1>
-
-<%= render 'search_form' %>
-
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Index</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @business_models.each do |model| %>
-    <tr>
-      <td><%= model.name %></td>
-      <td><%= model.index - 15 %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="main__business-models">
+  <div class="business-models__first_line">
+    <h2 class="business-models__tittle">Services</h2>
+    <%= render 'search_form' %>
+  </div>
+  <ul class="business-models__list">
+    <% @service.each do |model| %>
+      <li class="business-models__item">
+        <h3 class="business-models__name"><%= model.name %></h3>
+        <%= link_to "Posters", posters_path(search: model.name) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

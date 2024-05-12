@@ -1,4 +1,6 @@
-<%= form_tag(home_search_path, method: "get") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search for business models..." %>
-  <%= submit_tag "Search" %>
+<div class="business-models__search-form">
+<%= form_tag(home_search_path, method: "get", class: "search-form__form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search for business models...", class: "search-form__field" %>
+  <%= submit_tag "Search", class: "search-form__button" %>
 <% end %>
+</div>

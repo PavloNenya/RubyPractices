@@ -1,0 +1,35 @@
+.main__business-models{
+    width: 85%;
+
+}
+.business-models__first_line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.business-models__tittle{
+    color: #2a403d;
+    margin: 0;
+    flex: 6;
+}
+.business-models__search-form{
+    flex: 6;
+}
+.business-models__list{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    background-color: #2a403d;
+    color: #c3cbd6;
+}
+.business-models__item{
+    border-bottom: #748b6f 2px solid;
+}
+.business-models__name{
+    margin-left: 32px;
+}
+
