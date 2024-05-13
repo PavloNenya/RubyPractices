@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
 
   validates :gender, inclusion: { in: %w(male female), message: "must be either male or female" }
   validates :currency, presence: true
+  mount_uploader :avatar, AvatarUploader
 
   def exchange_rate_to_usd
     return 1 if currency == 'USD'

@@ -47,6 +47,12 @@
     <%= form.select :currency, ['USD', 'EUR', 'UAH'], prompt: "Select currency" %>
   </div>
 
+  <!-- Add avatar upload field -->
+  <div class="field">
+    <%= form.label :avatar, style: "display: block" %>
+    <%= form.file_field :avatar %>
+  </div>
+
   <div class="action">
     <%= form.submit %>
   </div>

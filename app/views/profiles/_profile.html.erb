@@ -54,7 +54,12 @@
       N/A <!-- or any message you prefer -->
     <% end %>
   </p>
-
+  <!-- Show avatar -->
+  <% if profile.avatar.present? %>
+    <%= image_tag profile.avatar_url(:thumb) %>
+  <% else %>
+    <p>No avatar uploaded.</p>
+  <% end %>
   <!-- Show payments only if the user's role is 'client' -->
   <% if profile.user.role == "client" %>
     <h2>Your Payments</h2>
