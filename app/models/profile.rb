@@ -9,11 +9,28 @@ class Profile < ApplicationRecord
   validates :currency, presence: true
 
   def exchange_rate_to_usd
-    return 1 if currency == 'UAH'
+    return 1 if currency == 'USD'
+
     response = HTTParty.get("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5")
     exchange_rates = JSON.parse(response.body)
-    currency_rate = exchange_rates.find { |rate| rate["ccy"] == currency }
-    currency_rate ? currency_rate["buy"].to_f : nil
+    usd_rate = exchange_rates.find { |rate| rate["ccy"] == 'USD' }
+    currency_rate = exchange_rates.find { |rate| rate["base_ccy"] == 'UAH' || rate["ccy"] == currency }
+
+    if usd_rate && currency_rate
+      usd_to_uah = usd_rate["sale"].to_f
+      currency_to_uah = currency_rate["sale"].to_f
+
+      # for UAH
+      if currency == 'UAH'
+        exchange_rate = 1 / usd_to_uah
+      else
+        exchange_rate = currency_to_uah / usd_to_uah
+      end
+
+      return exchange_rate
+    else
+      return nil
+    end
   rescue StandardError => e
     Rails.logger.error("Error fetching exchange rate: #{e.message}")
     nil

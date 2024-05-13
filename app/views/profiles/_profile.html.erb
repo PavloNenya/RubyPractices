@@ -46,10 +46,10 @@
   </p>
 
   <p>
-    <strong>Exchange Rate to USD:</strong>
+    <strong>Exchange Rate:</strong>
     <% exchange_rate = profile.exchange_rate_to_usd %>
     <% if exchange_rate %>
-      <%= number_to_currency(exchange_rate.to_f, unit: "UAN", precision: 2) %>
+      <%= number_to_currency(exchange_rate.to_f, unit: "USD ", precision: 2) %>
     <% else %>
       N/A <!-- or any message you prefer -->
     <% end %>
