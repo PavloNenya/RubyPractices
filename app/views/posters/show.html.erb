@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <div class="poster__show">
   <%= render @poster %>
 
@@ -40,6 +38,10 @@
       </ul>
     <% else %>
       <p>No reviews yet.</p>
+    <% end %>
+
+    <% if @average_rating %>
+      <p style="color: green">Average Rating: <%= '%.2f' % @average_rating %></p>
     <% end %>
   </div>
 </div>

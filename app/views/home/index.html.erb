@@ -8,6 +8,7 @@
       <li class="business-models__item">
         <h3 class="business-models__name"><%= model.name %></h3>
         <%= link_to "Posters", posters_path(search: model.name) %>
+        <%= link_to "Show this service", model %>
       </li>
     <% end %>
   </ul>

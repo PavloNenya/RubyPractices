@@ -5,10 +5,24 @@ class PostersController < ApplicationController
 
   # GET /posters or /posters.json
   def index
-    if params[:search]
-      @posters = Poster.joins(:service).where("services.name LIKE ?", "#{params[:search]}%")
-    else
-      @posters = Poster.all
+    @posters = Poster.includes(:service, :reviews, :payments)
+
+    if params[:search].present?
+      @posters = @posters.joins(:service).where("services.name LIKE ?", "#{params[:search]}%")
+    end
+
+    if params[:sort] == 'average_rating'
+      @posters = @posters.left_joins(:reviews)
+                         .group(:id)
+                         .order(Arel.sql('AVG(reviews.rating) DESC NULLS LAST'))
+    elsif params[:sort] == 'num_reviews'
+      @posters = @posters.left_joins(:reviews)
+                         .group(:id)
+                         .order('COUNT(reviews.id) DESC')
+    elsif params[:sort] == 'num_dates'
+      @posters = @posters.left_joins(:payments)
+                         .group(:id)
+                         .order(Arel.sql('COUNT(DISTINCT payments.date) DESC'))
     end
   end
 
@@ -16,6 +30,7 @@ class PostersController < ApplicationController
   def show
     @profile = @poster.user.profile if @poster.user&.profile.present?
     @payments = @poster.payments
+    @average_rating = @poster.reviews.average(:rating)
   end
 
   # GET /posters/new
