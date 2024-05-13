@@ -1,4 +1,4 @@
-<div id="<%= dom_id profile %>">
+<div id="<%= dom_id(profile) %>">
   <p>
     <strong>User Email:</strong>
     <%= profile.user.email %>
@@ -37,6 +37,22 @@
   <p>
     <strong>Telephone:</strong>
     <%= profile.telephone %>
+  </p>
+
+  <!-- Show currency preference -->
+  <p>
+    <strong>Currency Preference:</strong>
+    <%= profile.currency %>
+  </p>
+
+  <p>
+    <strong>Exchange Rate to USD:</strong>
+    <% exchange_rate = profile.exchange_rate_to_usd %>
+    <% if exchange_rate %>
+      <%= number_to_currency(exchange_rate.to_f, unit: "UAN", precision: 2) %>
+    <% else %>
+      N/A <!-- or any message you prefer -->
+    <% end %>
   </p>
 
   <!-- Show payments only if the user's role is 'client' -->

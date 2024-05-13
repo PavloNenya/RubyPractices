@@ -11,11 +11,6 @@
     </div>
   <% end %>
 
-<!--  <div class="field">-->
-    <%#= form.label :user_id, style: "display: block" %>
-    <%#= form.text_field :user_id %>
-<!--  </div>-->
-
   <div class="field">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
@@ -26,7 +21,7 @@
     <%= form.text_field :surname %>
   </div>
 
-  <div  class="field">
+  <div class="field">
     <%= form.label :fatherly, style: "display: block" %>
     <%= form.text_field :fatherly %>
   </div>
@@ -37,16 +32,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :gender %>
+    <%= form.label :gender, style: "display: block" %>
     <%= form.select :gender, ['male', 'female'], prompt: "Select gender" %>
   </div>
 
-  <div  class="field">
+  <div class="field">
     <%= form.label :telephone, style: "display: block" %>
     <%= form.text_field :telephone %>
   </div>
 
-  <div  class="action">
+  <!-- Add field for currency preference -->
+  <div class="field">
+    <%= form.label :currency, style: "display: block" %>
+    <%= form.select :currency, ['USD', 'EUR', 'UAH'], prompt: "Select currency" %>
+  </div>
+
+  <div class="action">
     <%= form.submit %>
   </div>
 <% end %>
