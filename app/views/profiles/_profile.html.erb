@@ -57,6 +57,9 @@
   <!-- Show avatar -->
   <% if profile.avatar.present? %>
     <%= image_tag profile.avatar_url(:thumb) %>
+
+    <!-- Clear Avatar Button -->
+    <%= button_to "Clear Avatar", clear_avatar_profile_path(profile), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to clear the avatar?" } %>
   <% else %>
     <p>No avatar uploaded.</p>
   <% end %>

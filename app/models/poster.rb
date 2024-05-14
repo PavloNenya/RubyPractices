@@ -5,6 +5,8 @@ class Poster < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :payments
 
+  mount_uploader :picture, PictureUploader
+
   def busy_day?(date)
     payments.exists?(date: date)
   end

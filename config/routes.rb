@@ -39,4 +39,10 @@ Rails.application.routes.draw do
   resources :payments do
     post 'check_busy_day', on: :collection
   end
+  resources :posters do
+    delete 'clear_picture', on: :member
+  end
+  resources :profiles do
+    delete 'clear_avatar', on: :member
+  end
 end

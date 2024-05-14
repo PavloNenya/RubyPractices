@@ -4,7 +4,6 @@
   </h1>
 
   <div class="poster__provider-info">
-
     <strong>Provider:</strong>
     <%= poster.user.email %>
     <% if poster.user.profile.present? %>
@@ -13,6 +12,7 @@
       </p>
     <% end %>
   </div>
+
   <!-- Adding the name field -->
   <p class="poster__name">
     <%= poster.name %>
@@ -23,4 +23,16 @@
   <p class="poster__price">
     <%= poster.price %>
   </p>
+
+  <% if poster.picture.present? %>
+    <div class="poster__picture">
+      <p><strong>Picture:</strong></p>
+      <%= image_tag poster.picture.url %>
+
+      <!-- Clear Picture Button -->
+      <% if current_user == poster.user %>
+        <%= button_to "Clear Picture", clear_picture_poster_path(poster), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to clear the picture?" } %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

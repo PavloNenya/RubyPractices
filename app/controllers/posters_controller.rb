@@ -102,6 +102,11 @@ class PostersController < ApplicationController
     @date = Date.today
     @is_busy = @poster.busy_day?(@date)
   end
+  def clear_picture
+    @poster = Poster.find(params[:id])
+    @poster.remove_picture! if @poster.picture.present?
+    redirect_to @poster, notice: 'Picture was successfully cleared.'
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -111,7 +116,7 @@ class PostersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def poster_params
-    params.require(:poster).permit(:name, :user_id, :service_id, :price, :description)
+    params.require(:poster).permit(:name, :user_id, :service_id, :price, :description, :picture)
   end
 
   # Check if the current user has the provider role
