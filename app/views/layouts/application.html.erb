@@ -1,51 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book Service</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Book Service</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <div class="header__title">
-          <h1 class="title__text"><%= link_to 'Book Service', root_path %></h1>
-        </div>
-        <ul class="header__user_actions">
-            <% if user_signed_in? %>
-              <li class="user_actions__item"><%=   link_to 'Profile', profiles_path, class: "user_actions__link" %></li>
-              <li class="user_actions__item"><%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "user_actions__link" %></li>
-            <% else %>
+  <style>
+      .avatar-image {
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          border-radius: 50%;
+      }
+  </style>
+</head>
 
-            <li class="user_actions__item"><%= link_to 'Sign in', new_user_session_path, class: "user_actions__link" %></li>
-            <li class="user_actions__item"><%= link_to 'Sign up', new_user_registration_path, class: "user_actions__link"  %></li>
-            <% end %>
-        </ul>
-      </header>
-      <nav class="navigation">
-        <ul class="nav__menu-bar">
-          <li class="menu-bar__item">
-            <%=  link_to 'Posters', posters_path, class: "menu-bar__link" %>
-          </li>
-          <li class="menu-bar__item">
-            <%=  link_to 'Posters', posters_path, class: "menu-bar__link" %>
-          </li>
-          <li class="menu-bar__item">
-            <%=  link_to 'Posters', posters_path, class: "menu-bar__link" %>
-          </li>
-          <li class="menu-bar__item">
-            <%=  link_to 'Posters', posters_path, class: "menu-bar__link" %>
-          </li>
-        </ul>
-      </nav>
-      <main class="main">
-        <%= yield %>
-      </main>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="header__title">
+      <h1 class="title__text"><%= link_to 'Book Service', root_path %></h1>
     </div>
-  </body>
+    <ul class="header__user_actions">
+      <% if user_signed_in? %>
+        <li class="nav-item" style="padding-top: 6px">
+          <% if current_user.profile.avatar.present? %>
+            <%= link_to profile_path(current_user.profile) do %>
+              <%= image_tag(current_user.profile.avatar.url, class: 'avatar-image') %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Profile', profiles_path, class: "user_actions__link" %>
+        <% end %>
+        </li>
+        <li class="user_actions__item"><%= link_to 'Sign out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'user_actions__link' %></li>
+      <% else %>
+        <li class="user_actions__item"><%= link_to 'Sign in', new_user_session_path, class: 'user_actions__link' %></li>
+        <li class="user_actions__item"><%= link_to 'Sign up', new_user_registration_path, class: 'user_actions__link' %></li>
+      <% end %>
+    </ul>
+  </header>
+  <nav class="navigation">
+    <ul class="nav__menu-bar">
+      <li class="menu-bar__item">
+        <%= link_to 'Posters', posters_path, class: 'menu-bar__link' %>
+      </li>
+      <li class="menu-bar__item">
+        <%= link_to 'Posters', posters_path, class: 'menu-bar__link' %>
+      </li>
+      <li class="menu-bar__item">
+        <%= link_to 'Posters', posters_path, class: 'menu-bar__link' %>
+      </li>
+      <li class="menu-bar__item">
+        <%= link_to 'Posters', posters_path, class: 'menu-bar__link' %>
+      </li>
+    </ul>
+  </nav>
+  <main class="main">
+    <%= yield %>
+  </main>
+</div>
+</body>
 </html>
