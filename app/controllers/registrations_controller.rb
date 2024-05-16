@@ -1,5 +1,26 @@
-# frozen_string_literal: true
+require 'net/http'
+require 'json'
 class RegistrationsController < Devise::RegistrationsController
+  def create
+    super do |user|
+      user.country = get_user_country(request.remote_ip)
+      user.city = params[:user][:city]
+      user.save
+    end
+  end
+
+  def get_user_country(ip)
+    # Commented as HTTP request have limit and unwanted during tests
+    #  response = Net::HTTP.get_response(URI("http://api.ipstack.com/#{ip}?access_key=39c710cfea386dee40fb9686fc94fc31"))
+
+    if response.is_a?(Net::HTTPSuccess)
+      data = JSON.parse(response.body)
+      data['country_name']
+    else
+      'Unknown'
+    end
+  end
+
   protected
 
   def after_sign_in_path_for(resource)
@@ -34,4 +55,6 @@ class RegistrationsController < Devise::RegistrationsController
       root_path # Redirect to the root path for other email domains after resetting password
     end
   end
+
+
 end

@@ -83,3 +83,4 @@ gem 'httparty'
 
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'geoip'

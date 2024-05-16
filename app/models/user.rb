@@ -13,8 +13,6 @@ class User < ApplicationRecord
   has_many :chose_us
   has_many :chose_ps
   ROLES = ["provider", "client"]
-
-
   validates :role, inclusion: { in: ROLES }
 
 
