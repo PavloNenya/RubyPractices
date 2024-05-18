@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :payments
   has_many :chose_us
   has_many :chose_ps
+  has_many :votes
   ROLES = ["provider", "client"]
   validates :role, inclusion: { in: ROLES }
 
@@ -32,5 +33,5 @@ class User < ApplicationRecord
       errors.add(:email, "must end with @karazin.ua for providers")
     end
   end
-
+  scope :with_role, ->(role_name) { where(role: role_name) }
 end

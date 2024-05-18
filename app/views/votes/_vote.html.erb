@@ -1,0 +1,11 @@
+<div id="<%= dom_id vote %>">
+  <p>
+    <strong>User:</strong>
+    <%= User.find(vote.user_id).email if vote.user_id.present? %>
+  </p>
+
+  <p>
+    <strong>Profile:</strong>
+    <%= User.find(Profile.find(vote.profile_id).user_id).email if vote.profile_id.present? %>
+  </p>
+</div>

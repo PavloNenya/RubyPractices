@@ -1,0 +1,27 @@
+<%= form_with(model: vote) do |form| %>
+  <% if vote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+        <% vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="display: none;">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :profile_id %>
+    <%= form.select :profile_id, options_for_select(User.with_role(:provider).joins(:profile).pluck('profiles.name', 'profiles.id')) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

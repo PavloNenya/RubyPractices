@@ -27,14 +27,14 @@
     </div>
     <ul class="header__user_actions">
       <% if user_signed_in? %>
-        <li class="user_actions__item" >
-          <%# if current_user.profile.avatar.present? %>
-            <%#= link_to profile_path(current_user.profile) do %>
-              <%#= image_tag(current_user.profile.avatar.url, class: 'avatar-image') %>
-            <%# end %>
-          <%# else %>
+        <li class="user_actions__item">
+          <% if current_user.profile.avatar.present? %>
+            <%= link_to profile_path(current_user.profile) do %>
+              <%= image_tag(current_user.profile.avatar.url, class: 'avatar-image') %>
+            <% end %>
+          <% else %>
             <%= link_to 'Profile', profiles_path, class: "user_actions__link" %>
-        <%# end %>
+          <% end %>
         </li>
         <li class="user_actions__item"><%= link_to 'Sign out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'user_actions__link' %></li>
       <% else %>

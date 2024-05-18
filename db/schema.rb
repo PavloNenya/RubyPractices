@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_17_120032) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_18_061402) do
   create_table "business_models", force: :cascade do |t|
     t.string "name"
     t.integer "index"
@@ -123,6 +123,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_120032) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "poster_id"
+    t.index ["profile_id"], name: "index_votes_on_profile_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "chose_ps", "services"
   add_foreign_key "chose_ps", "users"
   add_foreign_key "chose_us", "services"
@@ -136,4 +146,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_120032) do
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "posters"
   add_foreign_key "reviews", "users"
+  add_foreign_key "votes", "profiles"
+  add_foreign_key "votes", "users"
 end

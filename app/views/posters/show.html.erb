@@ -14,6 +14,15 @@
     <% end %>
 
     <% if current_user %>
+      <%= form_tag(votes_path, method: :post) do %>
+        <%= hidden_field_tag "vote[user_id]", current_user.id %>
+        <%= hidden_field_tag "vote[profile_id]", @poster.user.profile.id %>
+        <%= hidden_field_tag "vote[poster_id]", @poster.id %>
+        <%= submit_tag "Vote", class: "poster__btn-vote" %>
+      <% end %>
+    <% end %>
+
+    <% if current_user %>
       <%= link_to "Review", new_poster_review_path(@poster) %>
     <% end %>
 
@@ -24,7 +33,8 @@
     <%= link_to "View Schedule", schedule_poster_path(@poster), class: "btn btn-primary" %>
 
     <%= link_to "Check if Day is Busy", check_busy_day_poster_path(@poster), class: "btn btn-info" %>
-
+    <!-- Display the number of votes for the profile -->
+    <p>Number of votes for this profile: <%= @poster.user.profile.votes.count %></p>
     <% if @poster.reviews.any? %>
       <h2>Reviews Summary:</h2>
       <ul>
