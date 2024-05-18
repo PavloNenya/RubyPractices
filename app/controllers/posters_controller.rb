@@ -1,6 +1,6 @@
 class PostersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_poster, only: [:show, :edit, :update, :destroy, :add_to_favorites, :schedule, :check_busy_day]
+  before_action :set_poster, only: [:show, :edit, :update, :destroy, :add_to_favorites, :schedule, :check_busy_day, :clear_picture]
   before_action :check_provider_role, only: [:new, :create]
 
   # GET /posters or /posters.json
@@ -23,6 +23,18 @@ class PostersController < ApplicationController
       @posters = @posters.left_joins(:payments)
                          .group(:id)
                          .order(Arel.sql('COUNT(DISTINCT payments.date) DESC'))
+    end
+
+    # Find the profile with the most votes
+    profile_with_most_votes = Profile.joins(:votes)
+                                     .group('profiles.id')
+                                     .order('COUNT(votes.id) DESC')
+                                     .first
+
+    # Fetch the profile information
+    if profile_with_most_votes
+      @profile_with_most_votes = profile_with_most_votes
+      @user_with_most_votes = profile_with_most_votes.user
     end
   end
 
@@ -102,8 +114,8 @@ class PostersController < ApplicationController
     @date = Date.today
     @is_busy = @poster.busy_day?(@date)
   end
+
   def clear_picture
-    @poster = Poster.find(params[:id])
     @poster.remove_picture! if @poster.picture.present?
     redirect_to @poster, notice: 'Picture was successfully cleared.'
   end

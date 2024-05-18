@@ -6,6 +6,15 @@
     <% end %>
   </div>
 
+  <% if @profile_with_most_votes.present? %>
+    <div class="profile-with-most-votes">
+      <p>Profile with the most votes:</p>
+      <p>Name: <%= @profile_with_most_votes.name %></p>
+      <p>Surname: <%= @profile_with_most_votes.surname %></p>
+      <p>Email: <%= @user_with_most_votes.email %></p>
+    </div>
+  <% end %>
+
   <div class="posters__list" id="posters">
     <% if @posters.any? %>
       <div class="sorting-options">
