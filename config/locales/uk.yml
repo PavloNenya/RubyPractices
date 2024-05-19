@@ -1,0 +1,9 @@
+uk:
+  hello_world: "Привіт світ!"
+  links:
+    profile: "Профіль"
+    sign_up: "Зареєструватись"
+    sign_in: "Увійти"
+    sign_out: "Вийти"
+    posters: "Постери"
+    show_this_service: "Інформація про сервіс"

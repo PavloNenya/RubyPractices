@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :set_locale
   protected
 
   def configure_permitted_parameters
@@ -13,5 +13,13 @@ class ApplicationController < ActionController::Base
     sign_in(resource) # Automatically sign in the user after confirmation
     sign_out(current_user) # Sign out the current user to clear the session
     new_session_path(resource_name) # Redirect to a new session (sign in) path
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
   end
 end
