@@ -5,4 +5,5 @@ class Service < ApplicationRecord
   has_many :posters
   has_many :chose_us
   has_many :chose_ps
+  has_many :interests
 end

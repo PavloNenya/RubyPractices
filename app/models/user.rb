@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :chose_us
   has_many :chose_ps
   has_many :votes
+  has_many :interests
   ROLES = ["provider", "client"]
   validates :role, inclusion: { in: ROLES }
 

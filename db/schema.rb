@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_18_061402) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_18_101459) do
   create_table "business_models", force: :cascade do |t|
     t.string "name"
     t.integer "index"
@@ -45,6 +45,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_061402) do
     t.datetime "updated_at", null: false
     t.index ["poster_id"], name: "index_favorites_on_poster_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "group_memberships", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_memberships_on_group_id"
+    t.index ["user_id"], name: "index_group_memberships_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "interest_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interest_id"], name: "index_groups_on_interest_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_interests_on_service_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -139,6 +165,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_061402) do
   add_foreign_key "chose_us", "users"
   add_foreign_key "favorites", "posters"
   add_foreign_key "favorites", "users"
+  add_foreign_key "group_memberships", "groups"
+  add_foreign_key "group_memberships", "users"
+  add_foreign_key "groups", "interests"
+  add_foreign_key "interests", "services"
+  add_foreign_key "interests", "users"
   add_foreign_key "payments", "posters"
   add_foreign_key "payments", "users"
   add_foreign_key "posters", "services"
