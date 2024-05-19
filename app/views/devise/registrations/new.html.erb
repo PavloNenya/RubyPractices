@@ -22,16 +22,59 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
-    <div class="field">
-      <%= f.label :city %><br />
-      <%= f.text_field :city %>
-    </div>
+<!--    <div class="field">-->
+<!--      <%#= f.label :city %><br />-->
+      <%#= f.text_field :city %>
+<!--    </div>-->
 
     <div class="field">
       <%= f.label :role %><br />
       <%= f.select :role, User::ROLES %>
     </div>
 
+    <h3>Profile Information</h3>
+
+    <%= f.fields_for :profile do |pf| %>
+      <div class="field">
+        <%= pf.label :name %><br />
+        <%= pf.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :surname %><br />
+        <%= pf.text_field :surname %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :fatherly %><br />
+        <%= pf.text_field :fatherly %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :date_of_birth %><br />
+        <%= pf.date_field :date_of_birth %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :telephone %><br />
+        <%= pf.telephone_field :telephone %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :gender %><br />
+        <%= pf.select :gender, ['male', 'female'], prompt: "Select gender" %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :currency %><br />
+        <%= pf.select :currency, ['USD', 'EUR', 'UAH'], prompt: "Select currency" %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :avatar %><br />
+        <%= pf.file_field :avatar %>
+      </div>
+    <% end %>
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>

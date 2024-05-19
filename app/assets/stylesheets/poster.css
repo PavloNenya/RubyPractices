@@ -1,49 +1,15 @@
-.block_posters{
-    width: 100%;
-}
-.
-.posters__search-form form{
+.sorting-options{
     display: flex;
     flex-direction: row;
-    margin-top: 25px;
-    justify-content: center;
 }
-
-.posters__search-form form input[type="text"]{
-    width: 450px;
-    height: 20px;
-    margin-right: 30px;
-}
-.posters__search-form form input[type="submit"]{
-    width: 150px;
-    height: 42px;
-}
-.poster{
-    margin: 10px;
-    border-bottom: #2E2F30 solid 1px;
-}
-.poster__link{
-    width: 150px;
-    height: 35px;
-    background-color: #555;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-}
-.poster__link a{
+.sorting-options a{
+    display: block;
     text-decoration: none;
-    flex: 1;
-    font-size: 1.0em;
-    color: #eee;
+    color: #c3cbd6;
     text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.poster__show{
-    width: 100%;
-}
-.poster__show input[type="submit"]{
-    padding: 0;
-    width: 100px;
-    height: 30px;
+    width: 10%;
+    padding: 10px;
+    border: 1px solid #c3cbd6;
+    margin-left: 10px;
+    margin-top: 10px;
 }

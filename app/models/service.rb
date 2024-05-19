@@ -5,6 +5,7 @@ class Service < ApplicationRecord
   has_many :posters
   has_many :chose_us
   has_many :chose_ps
+  has_many :interests
 
   def self.ransackable_associations(auth_object = nil)
     @ransackable_associations ||= reflect_on_all_associations.map { |a| a.name.to_s }

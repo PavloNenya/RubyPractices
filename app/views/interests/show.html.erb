@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id @interest %>">
+  <p>
+    <strong>User:</strong>
+    <%= @interest.user.email %>
+  </p>
+
+  <p>
+    <strong>Service:</strong>
+    <%= @interest.service.name %>
+  </p>
+</div>
+
+<div>
+  <%= link_to "Edit this interest", edit_interest_path(@interest) %> |
+  <%= link_to "Back to interests", interests_path %> |
+  <%= button_to "Destroy this interest", @interest, method: :delete %> |
+  <%= link_to "Create a new group", new_group_path(interest_id: @interest.id), class: "btn btn-primary" %>
+</div>

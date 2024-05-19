@@ -20,6 +20,8 @@ body{
     background-color: #2a403d;
     border-bottom: #eee solid 2px;
     align-items: center;
+    padding-top:20px;
+    padding-bottom: 10px;
 }
 .header__title{
     width: 25%;
@@ -39,7 +41,7 @@ body{
 }
 
 .user_actions__item{
-    width: 120px;
+    min-width: 120px;
 
 }
 .user_actions__link{
@@ -55,6 +57,33 @@ body{
 .user_actions__item:hover .user_actions__link{
    background-color: #c3cbd6;
     color: #2a403d;
+}
+
+.header__locale-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin:0;
+
+}
+.locale-list__item{
+    margin-bottom: 5px;
+}
+.locale-list__link{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: #d05663;
+    border: 1px solid #d05663;
+    transition: background-color 0.2s, color 0.2s, border-radius 0.2s;
+    border-radius: 2px;
+}
+.locale-list__item:hover .locale-list__link{
+    background: #d05663;
+    color: #c3cbd6;
+    border-radius: 5px;
 }
 
 /*__________CONTENT______________*/
@@ -95,6 +124,67 @@ body{
     border: 1px solid #2a403d;
     color: #c3cbd6;
     background-color: #2a403d;
+}
+.main__block{
+    width: 85%;
+
+}
+.block__first-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.block__tittle{
+    color: #2a403d;
+    margin: 0;
+    flex: 6;
+}
+.block__search-form{
+    flex: 6;
+}
+.block__list{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    background-color: #2a403d;
+    color: #c3cbd6;
+}
+.block__item{
+    border-bottom: #748b6f 2px solid;
+    margin-left: 20px;
+}
+.block__action{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 0;
+    align-items: end;
+    justify-content: end;
+}
+.block__action-item{
+    min-width: 100px;
+
+}
+.block__action-link{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color:#c3cbd6;
+    border: solid 1px #c3cbd6;
+    margin-right: 20px;
+    border-radius: 1px;
+    transition: border-radius 0.3s;
+}
+.block__action-item:hover .block__action-link{
+    border-radius: 5px;
 }
 /*footer*/
 .footer{

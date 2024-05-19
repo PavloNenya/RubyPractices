@@ -102,4 +102,10 @@
   <% elsif profile.user.role == "provider" %>
     <p>No posters created yet.</p>
   <% end %>
+  <div>
+    <%= link_to "View Interests", interests_path, class: "btn btn-primary" %>
+  </div>
+  <div>
+    <%= link_to "View Groups", groups_path, class: "btn btn-primary" %>
+  </div>
 </div>

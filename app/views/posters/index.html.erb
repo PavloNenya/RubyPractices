@@ -1,12 +1,22 @@
-<div class="block_posters">
-  <div class="posters__search-form">
-    <%= form_tag(posters_path, method: "get") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search for posters by service..." %>
-      <%= submit_tag "Search" %>
-    <% end %>
+<div class="main__block">
+  <div class="block__first-line">
+    <h2 class="block__tittle">Posters</h2>
+      <%= form_tag(posters_path, method: "get", class: "search-form__form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search for posters by service...", class: "search-form__field"  %>
+        <%= submit_tag "Search", class: "search-form__button" %>
+      <% end %>
   </div>
 
-  <div class="posters__list" id="posters">
+  <% if @profile_with_most_votes.present? %>
+    <div class="profile-with-most-votes">
+      <p>Profile with the most votes:</p>
+      <p>Name: <%= @profile_with_most_votes.name %></p>
+      <p>Surname: <%= @profile_with_most_votes.surname %></p>
+      <p>Email: <%= @user_with_most_votes.email %></p>
+    </div>
+  <% end %>
+
+  <div class="block__list" id="posters">
     <% if @posters.any? %>
       <div class="sorting-options">
         <% if params[:sort] != 'average_rating' %>
@@ -26,21 +36,25 @@
         <% end %>
       </div>
     <% end %>
-    <% @posters.each do |poster| %>
-      <div class="poster">
-        <%= render poster %>
-        <% if poster.reviews.any? %>
-          <% average_rating = poster.reviews.average(:rating) %>
-          <p class="average-rating" style="color: green">Average Rating: <%= '%.2f' % average_rating %></p>
-        <% else %>
-          <p class="average-rating" style="color: green">No reviews yet</p>
-        <% end %>
-        <p class="num-reviews">Number of Reviews: <%= poster.reviews.count %></p>
-        <p class="num-dates">Number of Dates: <%= poster.payments.distinct.count(:date) %></p>
-        <p class="poster__link">
-          <%= link_to "Show this poster", poster %>
-        </p>
-      </div>
-    <% end %>
+    <ul class="block__list">
+      <% @posters.each do |poster| %>
+        <li class="block__item">
+          <%= render poster %>
+          <% if poster.reviews.any? %>
+            <% average_rating = poster.reviews.average(:rating) %>
+            <p class="average-rating" style="color: green">Average Rating: <%= '%.2f' % average_rating %></p>
+          <% else %>
+            <p class="average-rating" style="color: green">No reviews yet</p>
+          <% end %>
+          <p class="num-reviews">Number of Reviews: <%= poster.reviews.count %></p>
+          <p class="num-dates">Number of Dates: <%= poster.payments.distinct.count(:date) %></p>
+          <ul class="block__action">
+            <li class="block__action-item">
+              <%= link_to "Show this poster", poster, class: "block__action-link" %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

@@ -15,10 +15,8 @@ class ProfilesController < ApplicationController
     @payments = current_user.payments.includes(:poster)
   end
 
-
   # GET /profiles/1 or /profiles/1.json
   def show
-    # @user = @profile.user
   end
 
   # GET /profiles/new
@@ -68,13 +66,16 @@ class ProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   # DELETE /profiles/1/clear_avatar
   def clear_avatar
     @profile = Profile.find(params[:id])
     @profile.remove_avatar! if @profile.avatar.present?
     redirect_to @profile, notice: 'Avatar was successfully cleared.'
   end
+
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_profile
     @profile = Profile.find(params[:id])
@@ -86,6 +87,6 @@ class ProfilesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def profile_params
-    params.require(:profile).permit(:title, :surname, :parental, :date_of_birth, :sex, :telephone, :currency, :avatar)
+    params.require(:profile).permit(:name, :surname, :fatherly, :date_of_birth, :gender, :telephone, :currency, :avatar)
   end
 end

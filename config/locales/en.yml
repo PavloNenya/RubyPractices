@@ -29,3 +29,10 @@
 
 en:
   hello: "Hello world"
+  links:
+    profile: "Profile"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    posters: "Posters"
+    show_this_service: "Show this service"

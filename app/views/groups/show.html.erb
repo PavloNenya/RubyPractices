@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @group %>
+
+<div>
+  <%= link_to "Edit this group", edit_group_path(@group) %> |
+  <%= link_to "Back to groups", groups_path %> |
+  <%= button_to "Destroy this group", @group, method: :delete %> |
+  <%= link_to "Join this group", new_group_membership_path(group_id: @group.id), class: "btn btn-primary" %>
+</div>
+
+<h2>Group Members</h2>
+<% if @group.group_memberships.any? %>
+  <ul>
+    <% @group.group_memberships.each do |membership| %>
+      <li><%= membership.user.email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No members in this group yet.</p>
+<% end %>

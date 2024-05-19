@@ -1,14 +1,20 @@
-<div class="main__business-models">
-  <div class="business-models__first_line">
-    <h2 class="business-models__tittle">Services</h2>
+<div class="main__block">
+  <div class="block__first-line">
+    <h2 class="block__tittle">Services</h2>
     <%= render 'search_form' %>
   </div>
-  <ul class="business-models__list">
+  <ul class="block__list">
     <% @service.each do |model| %>
-      <li class="business-models__item">
+      <li class="block__item">
         <h3 class="business-models__name"><%= model.name %></h3>
-        <%= link_to "Posters", posters_path(search: model.name) %>
-        <%= link_to "Show this service", model %>
+        <ul class="block__action">
+          <li class="block__action-item">
+            <%= link_to t("links.posters"), posters_path(search: model.name), class: "block__action-link" %>
+          </li>
+          <li class="block__action-item">
+            <%= link_to t("links.show_this_service"), model, class: "block__action-link" %>
+          </li>
+        </ul>
       </li>
     <% end %>
   </ul>

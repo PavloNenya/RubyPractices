@@ -3,20 +3,17 @@
 <%= render @service %>
 
 <div>
-  <%= link_to "Edit this service", edit_service_path(@service) %> |
   <%= link_to "Back to services", services_path %>
-
-  <%= button_to "Destroy this service", @service, method: :delete %>
 </div>
 
+<% if user_signed_in? %>
 <div>
   <% if current_user.role == "client" %>
     <%= link_to "Choose this service", new_chose_u_path(service_id: @service.id), class: "btn btn-primary" %>
+    <%= link_to "Add to interests", new_interest_path(service_id: @service.id), class: "btn btn-primary" %>
+  <%else %>
+      <%= link_to "Choose this service", new_chose_p_path(service_id: @service.id), class: "btn btn-primary" %>
   <% end %>
 </div>
-
-<% if current_user.role == "provider" %>
-  <div>
-    <%= link_to "Choose this service", new_chose_p_path(service_id: @service.id), class: "btn btn-primary" %>
 <% end %>
-</div>
+

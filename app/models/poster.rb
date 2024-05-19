@@ -4,7 +4,7 @@ class Poster < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :payments
-
+  has_many :votes
   mount_uploader :picture, PictureUploader
   def self.ransackable_associations(auth_object = nil)
     @ransackable_associations ||= reflect_on_all_associations.map { |a| a.name.to_s }
