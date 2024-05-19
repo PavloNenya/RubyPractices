@@ -80,6 +80,8 @@ end
 gem 'mechanize'
 
 gem 'httparty'
+gem 'activeadmin'
+gem 'sassc'
 
 gem 'mini_magick'
 gem 'carrierwave'
