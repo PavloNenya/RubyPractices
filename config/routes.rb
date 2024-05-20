@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :group_memberships
+  resources :groups
+  resources :interests
+  resources :votes
   resources :chose_ps
   resources :chose_us
   resources :payments
