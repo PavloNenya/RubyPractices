@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @service %>
-
+<div>
+  <%= link_to "Edit this service", edit_service_path(@service), class: "btn btn-primary" %>
+</div>
 <div>
   <%= link_to "Back to services", services_path %>
 </div>
